@@ -44,3 +44,11 @@ type TurnStartSettings struct {
 	DevInstructions *string `json:"developer_instructions"`
 	Model           string  `json:"model"`
 }
+
+type Personality = string
+
+const (
+	PersonalityFriendly  Personality = "friendly"
+	PersonalityPragmatic Personality = "pragmatic"
+	PersonalityNone      Personality = "none"
+)

@@ -6,7 +6,6 @@ type AbsolutePathBuf = string
 type AuthMode = string
 type ForcedLoginMethod = string
 type InputModality = string
-type Personality = string
 type PlanType = string
 type ReasoningEffort = string
 type ReasoningSummary = string
