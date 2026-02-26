@@ -4,7 +4,6 @@ package protocol
 
 type AbsolutePathBuf = string
 type AuthMode = string
-type CollaborationMode = any
 type ForcedLoginMethod = string
 type InputModality = string
 type Personality = string
@@ -258,9 +257,9 @@ type CommandExecParams struct {
 }
 
 type CommandExecResponse struct {
-	ExitCode float64 `json:"exitCode"`
-	Stdout   string  `json:"stdout"`
-	Stderr   string  `json:"stderr"`
+	ExitCode int64  `json:"exitCode"`
+	Stdout   string `json:"stdout"`
+	Stderr   string `json:"stderr"`
 }
 
 type CommandExecutionApprovalDecision = string
@@ -1559,7 +1558,7 @@ type TurnPlanUpdatedNotification struct {
 
 type TurnStartParams struct {
 	ThreadId          string             `json:"threadId"`
-	Input             []UserInput        `json:"input"`
+	Input             []any              `json:"input"`
 	Cwd               *string            `json:"cwd,omitempty"`
 	ApprovalPolicy    *AskForApproval    `json:"approvalPolicy,omitempty"`
 	SandboxPolicy     *SandboxPolicy     `json:"sandboxPolicy,omitempty"`

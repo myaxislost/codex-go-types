@@ -27,3 +27,20 @@ type InitializeCapabilities struct {
 	ExperimentalApi           bool     `json:"experimentalApi,omitempty"`
 	OptOutNotificationMethods []string `json:"optOutNotificationMethods,omitempty"`
 }
+
+type CollaborationModeType = string
+
+const (
+	PlanMode    CollaborationModeType = "plan"
+	DefaultMode CollaborationModeType = "default"
+)
+
+type CollaborationMode struct {
+	Mode     CollaborationModeType `json:"mode"`
+	Settings TurnStartSettings     `json:"settings"`
+	// ReasoningEffort *string `json:"reasoning_effort"`
+}
+type TurnStartSettings struct {
+	DevInstructions *string `json:"developer_instructions"`
+	Model           string  `json:"model"`
+}
