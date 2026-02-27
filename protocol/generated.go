@@ -1308,12 +1308,12 @@ type ContextCompactionThreadItem struct {
 
 type ThreadListParams struct {
 	Cursor         *string            `json:"cursor,omitempty"`
-	Limit          *float64           `json:"limit,omitempty"`
-	SortKey        *ThreadSortKey     `json:"sortKey,omitempty"`
+	Limit          int                `json:"limit,omitempty"`
+	SortKey        ThreadSortKey      `json:"sortKey,omitempty"`
 	ModelProviders []string           `json:"modelProviders,omitempty"`
 	SourceKinds    []ThreadSourceKind `json:"sourceKinds,omitempty"`
-	Archived       *bool              `json:"archived,omitempty"`
-	Cwd            *string            `json:"cwd,omitempty"`
+	Archived       bool               `json:"archived,omitempty"`
+	Cwd            string             `json:"cwd,omitempty"`
 }
 
 type ThreadListResponse struct {
@@ -1346,19 +1346,19 @@ type ThreadReadResponse struct {
 }
 
 type ThreadResumeParams struct {
-	ThreadId               string          `json:"threadId"`
-	History                []ResponseItem  `json:"history,omitempty"`
-	Path                   *string         `json:"path,omitempty"`
-	Model                  *string         `json:"model,omitempty"`
-	ModelProvider          *string         `json:"modelProvider,omitempty"`
-	Cwd                    *string         `json:"cwd,omitempty"`
-	ApprovalPolicy         *AskForApproval `json:"approvalPolicy,omitempty"`
-	Sandbox                *SandboxMode    `json:"sandbox,omitempty"`
-	Config                 any             `json:"config,omitempty"`
-	BaseInstructions       *string         `json:"baseInstructions,omitempty"`
-	DeveloperInstructions  *string         `json:"developerInstructions,omitempty"`
-	Personality            *Personality    `json:"personality,omitempty"`
-	PersistExtendedHistory bool            `json:"persistExtendedHistory"`
+	ThreadId               string         `json:"threadId"`
+	History                []ResponseItem `json:"history,omitempty"`
+	Path                   string         `json:"path,omitempty"`
+	Model                  string         `json:"model,omitempty"`
+	ModelProvider          string         `json:"modelProvider,omitempty"`
+	Cwd                    string         `json:"cwd,omitempty"`
+	ApprovalPolicy         AskForApproval `json:"approvalPolicy,omitempty"`
+	Sandbox                SandboxMode    `json:"sandbox,omitempty"`
+	Config                 any            `json:"config,omitempty"`
+	BaseInstructions       *string        `json:"baseInstructions,omitempty"`
+	DeveloperInstructions  *string        `json:"developerInstructions,omitempty"`
+	Personality            Personality    `json:"personality,omitempty"`
+	PersistExtendedHistory bool           `json:"persistExtendedHistory"`
 }
 
 type ThreadResumeResponse struct {
@@ -1410,18 +1410,18 @@ const (
 )
 
 type ThreadStartParams struct {
-	Model                  *string         `json:"model,omitempty"`
-	ModelProvider          *string         `json:"modelProvider,omitempty"`
-	Cwd                    *string         `json:"cwd,omitempty"`
-	ApprovalPolicy         *AskForApproval `json:"approvalPolicy,omitempty"`
-	Sandbox                *SandboxMode    `json:"sandbox,omitempty"`
-	Config                 any             `json:"config,omitempty"`
-	BaseInstructions       *string         `json:"baseInstructions,omitempty"`
-	DeveloperInstructions  *string         `json:"developerInstructions,omitempty"`
-	Personality            *Personality    `json:"personality,omitempty"`
-	Ephemeral              *bool           `json:"ephemeral,omitempty"`
-	ExperimentalRawEvents  bool            `json:"experimentalRawEvents"`
-	PersistExtendedHistory bool            `json:"persistExtendedHistory"`
+	Model                  string         `json:"model,omitempty"`
+	ModelProvider          string         `json:"modelProvider,omitempty"`
+	Cwd                    string         `json:"cwd,omitempty"`
+	ApprovalPolicy         AskForApproval `json:"approvalPolicy,omitempty"`
+	Sandbox                SandboxMode    `json:"sandbox,omitempty"`
+	Config                 any            `json:"config,omitempty"`
+	BaseInstructions       string         `json:"baseInstructions,omitempty"`
+	DeveloperInstructions  string         `json:"developerInstructions,omitempty"`
+	Personality            Personality    `json:"personality,omitempty"`
+	Ephemeral              bool           `json:"ephemeral,omitempty"`
+	ExperimentalRawEvents  bool           `json:"experimentalRawEvents"`
+	PersistExtendedHistory bool           `json:"persistExtendedHistory"`
 }
 
 type ThreadStartResponse struct {
@@ -1505,10 +1505,10 @@ type ToolsV2 struct {
 }
 
 type Turn struct {
-	Id     string       `json:"id"`
-	Items  []ThreadItem `json:"items"`
-	Status TurnStatus   `json:"status"`
-	Error  *TurnError   `json:"error"`
+	Id     string     `json:"id"`
+	Items  []any      `json:"items"`
+	Status TurnStatus `json:"status"`
+	Error  *TurnError `json:"error"`
 }
 
 type TurnCompletedNotification struct {
