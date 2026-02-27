@@ -573,8 +573,8 @@ type GetAccountParams struct {
 }
 
 type GetAccountRateLimitsResponse struct {
-	RateLimits          RateLimitSnapshot `json:"rateLimits"`
-	RateLimitsByLimitId map[string]any    `json:"rateLimitsByLimitId"`
+	RateLimits          RateLimitSnapshot            `json:"rateLimits"`
+	RateLimitsByLimitId map[string]RateLimitSnapshot `json:"rateLimitsByLimitId"`
 }
 
 type GetAccountResponse struct {
